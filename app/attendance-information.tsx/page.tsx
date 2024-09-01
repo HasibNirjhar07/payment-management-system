@@ -2,12 +2,12 @@
 
 import AttendancePage from '@/components/attendance-Information';
 
-
-export default function Home() {
+const attendance = () => {
   return (
     <div>
       <AttendancePage />
-      <p>Welcome to the home page</p>
     </div>
-  )
-}
+  );
+};
+
+export default attendance;

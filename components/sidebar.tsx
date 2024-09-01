@@ -11,10 +11,10 @@ const menuItems = [
   { name: "Batches", path: "/batches" },
   { name: "Students", path: "/students" },
   { name: "Instructors", path: "/instructors" },
-  { name: "Payments", path: "/payment" },
-  { name: "Attendance", path: "/attendance" },
+ 
   { name: "Reports", path: "/reports" },
-  { name: "Settings", path: "/settings" },
+  
+  { name: "Attendance", path: "/attendance-information" },
 ]
 
 interface SidebarProps {
