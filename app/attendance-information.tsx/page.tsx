@@ -1,5 +1,5 @@
 
-
+""
 import AttendancePage from '@/components/attendance-Information';
 
 const attendance = () => {

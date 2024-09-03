@@ -11,6 +11,8 @@ const menuItems = [
   { name: "Batches", path: "/batches" },
   { name: "Students", path: "/students" },
   { name: "Instructors", path: "/instructors" },
+  { name: "Payments", path: "/payment" },
+  
  
   { name: "Reports", path: "/reports" },
   
