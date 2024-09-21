@@ -6,17 +6,9 @@ import React, { useState } from "react"
 
 const menuItems = [
   { name: "Dashboard", path: "/" },
-  { name: "Class Summary", path: "/class-summary" },
+  { name: "Student Register", path: "/register" },
   { name: "Classes", path: "/classes" },
   { name: "Batches", path: "/batches" },
-  { name: "Students", path: "/students" },
-  { name: "Instructors", path: "/instructors" },
-  { name: "Payments", path: "/payment" },
-  
- 
-  { name: "Reports", path: "/reports" },
-  
-  { name: "Attendance", path: "/attendance-information" },
 ]
 
 interface SidebarProps {

@@ -1,13 +1,9 @@
-
-
-import AttendancePage from '@/components/attendance-Information';
-
+import AdminDashboard from "@/components/admin-dashboard"
 
 export default function Home() {
   return (
     <div>
-      <AttendancePage />
-      <p>Welcome to the home page</p>
+      <AdminDashboard />
     </div>
   )
 }
