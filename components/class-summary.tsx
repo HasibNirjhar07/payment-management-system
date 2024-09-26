@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import Link from "next/link";
 
@@ -31,21 +33,13 @@ const ClassCard: FC<ClassCardProps> = ({
     <div className="flex justify-between mt-4">
       <div className="flex items-center">
         <span>This Month: </span>
-        <span className="ml-1 text-green-600">
-          ▲ {thisMonth.up}
-        </span>
-        <span className="ml-2 text-red-600">
-          ▼ {thisMonth.down}
-        </span>
+        <span className="ml-1 text-green-600">▲ {thisMonth.up}</span>
+        <span className="ml-2 text-red-600">▼ {thisMonth.down}</span>
       </div>
       <div className="flex items-center">
         <span>Last Month: </span>
-        <span className="ml-1 text-green-600">
-          ▲ {lastMonth.up}
-        </span>
-        <span className="ml-2 text-red-600">
-          ▼ {lastMonth.down}
-        </span>
+        <span className="ml-1 text-green-600">▲ {lastMonth.up}</span>
+        <span className="ml-2 text-red-600">▼ {lastMonth.down}</span>
       </div>
     </div>
   </div>
@@ -116,7 +110,9 @@ const ClassSummary: FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {classes.map((cls) => (
-          <ClassCard key={cls.year} {...cls} />
+          <Link key={cls.year} href={cls.year === 26 ? "/subjectSummary" : "#"}>
+            <ClassCard {...cls} />
+          </Link>
         ))}
       </div>
     </div>
