@@ -1,7 +1,7 @@
 "use client";
 
-import React from 'react';
-import { ArrowUpIcon, ArrowDownIcon } from 'lucide-react';
+import React from "react";
+import { ArrowUpIcon, ArrowDownIcon } from "lucide-react";
 
 interface BatchProps {
   batchNumber: number;
@@ -24,26 +24,45 @@ const BatchCard: React.FC<BatchProps> = ({
   thisMonth,
   lastMonth,
 }) => (
-  <div className="bg-gray-100 p-4 rounded-lg shadow">
-    <h3 className="text-lg font-semibold mb-2 bg-gray-300 p-2">
-      Physics Batch {batchNumber} (HSC 26)
-    </h3>
-    <p>
-      Schedule: {schedule} <span className="text-sm text-gray-500">({days})</span>
-    </p>
-    <p>Active Students : {activeStudents}</p>
-    <p>Enrolled Students : {enrolledStudents}</p>
-    <p>Instructor : {instructor}</p>
-    <div className="flex justify-between mt-2 text-sm">
-      <div>
-        This Month: 
-        <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {thisMonth.up}</span>
-        <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {thisMonth.down}</span>
-      </div>
-      <div>
-        Last Month: 
-        <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {lastMonth.up}</span>
-        <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {lastMonth.down}</span>
+  <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+    {/* Header section with grey background */}
+    <div className="bg-gray-300 p-2 rounded-t-lg ">
+      <h3 className="text-xl font-bold mb-2">
+        Physics Batch {batchNumber} (HSC 2026)
+      </h3>
+      {/* Prominent schedule inside the grey header */}
+      <p className="text-sm">
+        <strong>Schedule: </strong>
+        {schedule} <span className="ml-1">({days})</span>
+      </p>
+    </div>
+    <div className="p-4">
+      <p>
+        <strong>Active Students:</strong> {activeStudents}
+      </p>
+      <p>
+        <strong>Enrolled Students:</strong> {enrolledStudents}
+      </p>
+      <p>
+        <strong>Instructor:</strong> {instructor}
+      </p>
+      {/* Monthly stats with icons */}
+      <div className="flex justify-between mt-4 text-sm">
+      <div className="text-black">
+  <span>This Month: </span>
+  <ArrowUpIcon className="inline text-green-600" size={16} /> 
+  <span className="text-green-600">{thisMonth.up}</span>
+  <ArrowDownIcon className="inline text-red-600" size={16} /> 
+  <span className="text-red-600">{thisMonth.down}</span>
+</div>
+<div className="text-black">
+  <span>Last Month: </span>
+  <ArrowUpIcon className="inline text-green-600" size={16} /> 
+  <span className="text-green-600">{lastMonth.up}</span>
+  <ArrowDownIcon className="inline text-red-600" size={16} /> 
+  <span className="text-red-600">{lastMonth.down}</span>
+</div>
+
       </div>
     </div>
   </div>
@@ -105,8 +124,10 @@ const PhysicsBatchDetails: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">Physics Batch Details (HSC 2026)</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <h1 className="text-2xl font-bold mb-6 text-center">
+        Physics Batch Details (HSC 2026)
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {batches.map((batch) => (
           <BatchCard key={batch.batchNumber} {...batch} />
         ))}
