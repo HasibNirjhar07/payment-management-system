@@ -7,7 +7,7 @@ import React, { useState } from "react"
 const menuItems = [
   { name: "Dashboard", path: "/" },
   { name: "Student Register", path: "/register" },
-  { name: "Classes", path: "/classes" },
+  { name: "Classes", path: "/classSummary" },
   { name: "Batches", path: "/batches" },
   { name: "Payments", path: "/payments" },
   { name: "Reports", path: "/reports" },
