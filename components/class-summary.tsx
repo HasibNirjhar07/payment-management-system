@@ -6,8 +6,8 @@ interface ClassCardProps {
   label: string;
   active: number;
   enrolled: number;
-  thisMonth: number;
-  lastMonth: number;
+  thisMonth: { up: number; down: number };
+  lastMonth: { up: number; down: number };
 }
 
 const ClassCard: FC<ClassCardProps> = ({
@@ -29,16 +29,22 @@ const ClassCard: FC<ClassCardProps> = ({
       Enrolled Students: <span className="font-bold">{enrolled}</span>
     </p>
     <div className="flex justify-between mt-4">
-      <div className="flex items-center text-green-600">
+      <div className="flex items-center">
         <span>This Month: </span>
-        <span className="ml-1">
-          {thisMonth >= 0 ? "▲" : "▼"} {Math.abs(thisMonth)}
+        <span className="ml-1 text-green-600">
+          ▲ {thisMonth.up}
+        </span>
+        <span className="ml-2 text-red-600">
+          ▼ {thisMonth.down}
         </span>
       </div>
-      <div className="flex items-center text-red-600">
+      <div className="flex items-center">
         <span>Last Month: </span>
-        <span className="ml-1">
-          {lastMonth >= 0 ? "▲" : "▼"} {Math.abs(lastMonth)}
+        <span className="ml-1 text-green-600">
+          ▲ {lastMonth.up}
+        </span>
+        <span className="ml-2 text-red-600">
+          ▼ {lastMonth.down}
         </span>
       </div>
     </div>
@@ -47,12 +53,54 @@ const ClassCard: FC<ClassCardProps> = ({
 
 const ClassSummary: FC = () => {
   const classes = [
-    { year: 24, label: "Admission Batch", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
-    { year: 25, label: "Class 12", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
-    { year: 26, label: "Class 11", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
-    { year: 27, label: "Class 10", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
-    { year: 28, label: "Class 10", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
-    { year: 29, label: "Class 09", active: 250, enrolled: 750, thisMonth: 17, lastMonth: -3 },
+    {
+      year: 24,
+      label: "Admission Batch",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
+    {
+      year: 25,
+      label: "Class 12",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
+    {
+      year: 26,
+      label: "Class 11",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
+    {
+      year: 27,
+      label: "Class 10",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
+    {
+      year: 28,
+      label: "Class 10",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
+    {
+      year: 29,
+      label: "Class 09",
+      active: 250,
+      enrolled: 750,
+      thisMonth: { up: 17, down: 3 },
+      lastMonth: { up: 17, down: 3 },
+    },
   ];
 
   return (
@@ -76,3 +124,4 @@ const ClassSummary: FC = () => {
 };
 
 export default ClassSummary;
+
