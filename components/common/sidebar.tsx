@@ -9,6 +9,9 @@ const menuItems = [
   { name: "Student Register", path: "/register" },
   { name: "Classes", path: "/classes" },
   { name: "Batches", path: "/batches" },
+  { name: "Payments", path: "/payments" },
+  { name: "Reports", path: "/reports" },
+  { name: "Settings", path: "/settings" },
 ]
 
 interface SidebarProps {
