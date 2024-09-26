@@ -4,30 +4,34 @@
 import React from 'react';
 import { ArrowUpIcon, ArrowDownIcon } from 'lucide-react';
 
+import Link from 'next/link';
+
 const SubjectCard = ({ subject, data }) => (
-  <div className="bg-gray-100 p-4 rounded-lg shadow">
-    <h3 className="text-lg font-semibold mb-2 bg-gray-300 p-2">{subject} (HSC 26)</h3>
-    <p>Number of Batch : {data.batches}</p>
-    <p>
-      Active Students : {data.activeStudents}
-      <br />
-      Enrolled Students : {data.enrolledStudents}
-    </p>
-    <p>Instructor : {data.instructor}</p>
-    <div className="flex justify-between mt-2 text-sm">
-      <div>
-        This Month: 
-        <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {data.thisMonth.up}</span>
-        <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {data.thisMonth.down}</span>
+    <Link href={subject === "Physics" ? "/subjectSummary/physics-batch-details" : "#"}>
+      <div className="bg-gray-100 p-4 rounded-lg shadow hover:shadow-md transition-shadow duration-200">
+        <h3 className="text-lg font-semibold mb-2 bg-gray-300 p-2">{subject} (HSC 26)</h3>
+        <p>Number of Batch : {data.batches}</p>
+        <p>
+          Active Students : {data.activeStudents}
+          <br />
+          Enrolled Students : {data.enrolledStudents}
+        </p>
+        <p>Instructor : {data.instructor}</p>
+        <div className="flex justify-between mt-2 text-sm">
+          <div>
+            This Month: 
+            <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {data.thisMonth.up}</span>
+            <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {data.thisMonth.down}</span>
+          </div>
+          <div>
+            Last Month: 
+            <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {data.lastMonth.up}</span>
+            <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {data.lastMonth.down}</span>
+          </div>
+        </div>
       </div>
-      <div>
-        Last Month: 
-        <span className="text-green-600 ml-1"><ArrowUpIcon className="inline" size={16} /> {data.lastMonth.up}</span>
-        <span className="text-red-600 ml-1"><ArrowDownIcon className="inline" size={16} /> {data.lastMonth.down}</span>
-      </div>
-    </div>
-  </div>
-);
+    </Link>
+  );
 
 const HSC2026DetailsPage = () => {
   const subjects = [
